@@ -1,4 +1,4 @@
-# ~/.gitconfit
+# ~/.gitconfig
 [core]
 	symlinks = true
 [alias]
