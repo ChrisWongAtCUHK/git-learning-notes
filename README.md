@@ -28,3 +28,7 @@ git branch -a
 #### `--amend`
 可以修改最後一次提交。更早的修改用`rebase`
 
+## .git/info
+### .git/info/exclude
+相當於.gitignore，不過不會加到提交中。
+
