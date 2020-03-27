@@ -32,3 +32,18 @@ git branch -a
 ### .git/info/exclude
 相當於.gitignore，不過不會加到提交中。
 
+## [Git Hooks](https://git-scm.com/book/zh-tw/v2/Customizing-Git-Git-Hooks)
+1. `.git/hooks`資料夾中有一堆sample，複製pre-commit.sample成pre-commit。
+2. echo test > 測試.txt
+3. git add 測試.txt
+4. git commit -m "Test"會報錯，commit也不成功，因為中文名的檔案觸發了pre-commit中的錯誤。
+5. 試試改改pre-commit看。
+
+
+
+## 工具
+### [gitignore.io](https://docs.gitignore.io/install/command-line)
+```
+git config --global alias.ignore \
+'!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi'
+```
