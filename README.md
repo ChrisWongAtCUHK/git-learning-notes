@@ -1,5 +1,19 @@
 # Git學習筆記
 
+## push出錯了，怎麼辦？
+1. 從想修改的分支建立一個新分支。
+2. 舊的分支，把本地分支和遠端分支刪除。
+3. checkout到想回溯的commit
+4. push
+5. Example
+```
+git checkout dev -b dev-backup
+git branch -D dev && git push origin --delete dev
+git checkout 4f8eef3 -b dev
+git push origin dev
+```
+注意：如非必要，請不要對與其人共用的分支進行這種修改，因為會有機會與其他的本地分支造成conflict。
+
 ## alias
 
 ### add
@@ -38,8 +52,6 @@ git branch -a
 3. git add 測試.txt
 4. git commit -m "Test"會報錯，commit也不成功，因為中文名的檔案觸發了pre-commit中的錯誤。
 5. 試試改改pre-commit看。
-
-
 
 ## 工具
 ### [gitignore.io](https://docs.gitignore.io/install/command-line)
