@@ -1,5 +1,13 @@
 # Git學習筆記
 
+## commit出錯了，怎麼辦？
+先看command
+```
+git rebase -i HEAD~1
+```
+詳細用法：[Beginner’s Guide to Interactive Rebasing](https://hackernoon.com/beginners-guide-to-interactive-rebasing-346a3f9c3a6d)  
+注意：如commit已push到遠端，請勿作這種修改，因為會造成conflict。
+
 ## push出錯了，怎麼辦？
 1. 從想修改的分支建立一個新分支。
 2. 舊的分支，把本地分支和遠端分支刪除。
@@ -12,7 +20,7 @@ git branch -D dev && git push origin --delete dev
 git checkout 4f8eef3 -b dev
 git push origin dev
 ```
-注意：如非必要，請不要對與其人共用的分支進行這種修改，因為會有機會與其他的本地分支造成conflict。
+注意：如非必要，請不要對與其他人共用的分支進行這種修改，因為會有機會與其他的本地分支造成conflict。
 
 ## alias
 
