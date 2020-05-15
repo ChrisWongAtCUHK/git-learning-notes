@@ -22,6 +22,16 @@ git push origin dev
 ```
 注意：如非必要，請不要對與其他人共用的分支進行這種修改，因為會有機會與其他的本地分支造成conflict。
 
+## rebase錯了，或誤把branch刪除了，怎麼辦？
+先看看最近做了什麼
+```
+git reflog
+```
+回到過去
+```
+git reset --hard <SHA>
+```
+
 ## alias
 
 ### add
