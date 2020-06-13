@@ -8,7 +8,7 @@
 	br      = branch
 	bra     = branch -a
 	brd     = branch -D                                                                                                                                                                     # delete the local branch
-	brdd    = pushd origin --delete                                                                                                                                                         # delete the remote branch
+	brdd    = push origin --delete                                                                                                                                                         # delete the remote branch
 	brm     = branch -m
 	brr     = branch -r
 	brrs    = for-each-ref --sort=-committerdate refs/remotes/
@@ -53,6 +53,7 @@
 	lp1     = log -p -1 --
 	lr      = ls-remote
 	lsr     = ls-tree -r
+	mf      = merge --ff-only
 	mt      = mergetool
 	mt      = mergetool
 	pa      = push --all
@@ -82,9 +83,18 @@
 	ssn     = shortlog -s -n                                                                                                                                                                # get the number of commits per author
 	ssna    = shortlog -s -n --all                                                                                                                                                          # get the number of commits per author, with statisics for all branches
 	st      = status
+	t       = tag
+	td      = tag -d		# delete tag(s)
 	undo    = reset --soft HEAD~
 	unhide  = update-index --no-assume-unchanged
+
+[diff]
+	tool = diffmerge
+[difftool "diffmerge"]
+	cmd = /usr/local/bin/diffmerge \"$LOCAL\" \"$REMOTE\"
 [difftool]
   prompt = false
+[merge]
+	tool = diffmerge
 [merge "ours"]
   driver = true
