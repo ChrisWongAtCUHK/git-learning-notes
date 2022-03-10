@@ -31,6 +31,7 @@
 	dth     = difftool --tool-help                                                                                                                                                          # list of valid <tool> settings
 	dtv     = difftool -t vimdiff                                                                                                                                                           # use vimdiff to compare, note: config .vimrc
 	dty     = difftool -y
+	fa      = fetch --all
 	fb      = "!f() { git fetch $1 $2:$2; }; f"                                                                                                                                             # e.g. git fetch origin branch1:branch1
 	goda    = log --graph --oneline --decorate --all
 	hide    = update-index --assume-unchanged
