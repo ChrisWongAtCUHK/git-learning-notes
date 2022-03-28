@@ -7,7 +7,7 @@
 	b       = branch
 	br      = branch
 	bra     = branch -a
-	brd     = branch -D                                                                                                                                                                     # delete the local branch
+	brd     = branch -D                                                                                                                                                                    # delete the local branch
 	brdd    = push origin --delete                                                                                                                                                         # delete the remote branch
 	brm     = branch -m
 	brr     = branch -r
