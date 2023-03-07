@@ -68,6 +68,7 @@
 	r       = reset
 	ra      = "!f() { git remote add $1 https://$2@bitbucket.org/$3/$4.git; }; f"
 	rb      = rebase
+	rename  = branch -m # git rename master main
 	rh      = reset --hard
 	ri      = "!f() { git rebase -i HEAD~$1; }; f"
 	rs      = reset --soft
