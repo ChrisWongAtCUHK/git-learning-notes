@@ -34,6 +34,7 @@
 	dtv     = difftool -t vimdiff                                                                                                                                                           # use vimdiff to compare, note: config .vimrc
 	dty     = difftool -y
 	fa      = fetch --all
+	exclude = "!f() { vim .git/info/exclude; }; f"                                                                                                                                           # edit local ignore file(s)
 	fb      = "!f() { git fetch $1 $2:$2; }; f"                                                                                                                                             # e.g. git fetch origin branch1:branch1
 	goda    = log --graph --oneline --decorate --all
 	hide    = update-index --assume-unchanged
