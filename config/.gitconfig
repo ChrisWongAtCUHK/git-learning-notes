@@ -75,6 +75,7 @@
 	rename  = branch -m # git rename master main
 	rh      = reset --hard
 	ri      = "!f() { git rebase -i HEAD~$1; }; f"
+	rir     = "!f() { git rebase -i --root; }; f"
 	rs      = reset --soft
 	rv      = remote -v
 	sa      = stash apply
