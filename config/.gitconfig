@@ -3,97 +3,99 @@
 	symlinks = true
 	pager = # https://superuser.com/questions/820943/typing-git-log-oneline-in-oh-my-zsh-pipes-to-less
 [alias]
-	aa      = add --all
-	alias   = config --get-regexp alias
-	ap	    = add --patch                                                                                                                                                                  # https://dev.to/etcwilde/git-and-the-interactive-patch-add
-	b       = branch
-	br      = branch
-	bra     = branch -a
-	brd     = branch -D                                                                                                                                                                    # delete the local branch
-	brdd    = push origin --delete                                                                                                                                                         # delete the remote branch
-	brm     = branch -m
-	brr     = branch -r
-	brrs    = for-each-ref --sort=-committerdate refs/remotes/
-	brs     = for-each-ref --sort=-committerdate refs/heads/
-	brv     = branch -v
-	ca      = commit --amend
-	ci      = commit -v
-	cl      = config --list
-	cm      = commit -m
-	co      = checkout
-	cob     = checkout -b
-	coh     = checkout HEAD
-	coo     = checkout --orphan
-	cop     = checkout -                                                                                                                                                                    # checkout last branch
-	cp      = cherry-pick
-	da      = "!f() { git branch -D $2 && git push $1 --delete $2; }; f"                                                                                                                    # delete both local and remote branch, e.g. git da origin test
-	dd      = "!f() { git diff --name-only $1 | xargs -p git difftool -y $1 --; }; f"                                                                                                       # diff --name-only && difftool e.g. git dd abcdef
-	dno     = diff --name-only
-	dt      = difftool
-	dth     = difftool --tool-help                                                                                                                                                          # list of valid <tool> settings
-	dtv     = difftool -t vimdiff                                                                                                                                                           # use vimdiff to compare, note: config .vimrc
-	dty     = difftool -y
-	fa      = fetch --all
-	exclude = "!f() { vim .git/info/exclude; }; f"                                                                                                                                           # edit local ignore file(s)
-	fb      = "!f() { git fetch $1 $2:$2; }; f"                                                                                                                                             # e.g. git fetch origin branch1:branch1
-	fc      = "!f() { git branch -M && git add . && git commit -m 'First commit'; }; f" # switch to branch `main` and add all and commit                                                                                                                                        # e.g. git fetch origin branch1:branch1
-	goda    = log --graph --oneline --decorate --all
-	hide    = update-index --assume-unchanged
-	i       = init
-	ignore  = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
-	ignored = !git ls-files -v | grep "^h"
-	l       = log --oneline
-	lc      = log ORIG_HEAD.. --stat --no-merges
-	lf      = log --name-only --oneline --pretty=\"format:\"                                                                                                                                # log file name only(without information
-	lg      = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	lgcnt   = "!f() { git log --pretty=oneline --after=$1days | wc -l; }; f"                                                                                                                # e.g. git lgcnt 10, count the commits in 10 days
-	lgfrom  = "!f() { git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative $1..HEAD; }; f"       # get the log from a commit to HEAD, only available in current branch
-	lgg     = log -g                                                                                                                                                                        # show changing brances, e.g. git reset HEAD^
-	lggrep  = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --grep
-	lgh     = log -g HEAD@{1}                                                                                                                                                               # show last changing brances, e.g. git reset HEAD^
-	lglast  = "!f() { git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --after=$1days; }; f"
-	lgr     = "!f() { git log --pretty=oneline --reverse | head -$1; }; f"                                                                                                                  # git log reverse
-	lol     = log --oneline
-	initial = "!f() { git init && git add -A && git commit -m 'Initial commit'; }; f"
-	lp1     = log -p -1 --
-	lr      = ls-remote
-	lsr     = ls-tree -r
-	mf      = merge --ff-only
-	mt      = mergetool
-	mt      = mergetool
-	pa      = push --all
-	pb      = push -u bitbucket HEAD
-	ph      = push -u heroku HEAD
-	po      = push -u origin HEAD
-	poa     = push origin --all
-	pr      = pull --rebase
-	pro     = pull --rebase origin
-	puo     = push -u origin
-	r       = reset
-	ra      = "!f() { git remote add $1 https://$2@bitbucket.org/$3/$4.git; }; f"
-	rb      = rebase
-	rename  = branch -m # git rename master main
-	rh      = reset --hard
-	ri      = "!f() { git rebase -i HEAD~$1; }; f"
-	rir     = "!f() { git rebase -i --root; }; f"
-	rs      = reset --soft
-	rv      = remote -v
-	sa      = stash apply
-	sh      = show
-	sl      = stash list
-	sn      = "!f() { git show HEAD~$1 --name-only; }; f"
-	sno     = show --name-only
-	sno0    = show HEAD --name-only
-	sp      = stash pop
-	ss      = stash save
-	ssa     = "!f() { git stash save && git stash apply; }; f"                                                                                                                              # e.g. stash without rever
-	ssn     = shortlog -s -n                                                                                                                                                                # get the number of commits per author
-	ssna    = shortlog -s -n --all                                                                                                                                                          # get the number of commits per author, with statisics for all branches
-	st      = status
-	t       = tag
-	td      = tag -d		# delete tag(s)
-	undo    = reset --soft HEAD~
-	unhide  = update-index --no-assume-unchanged
+	aa       = add --all
+	alias    = config --get-regexp alias
+	ap	     = add --patch                                                                                                                                                                  # https://dev.to/etcwilde/git-and-the-interactive-patch-add
+	b        = branch
+	br       = branch
+	bra      = branch -a
+	brd      = branch -D                                                                                                                                                                    # delete the local branch
+	brdd     = push origin --delete                                                                                                                                                         # delete the remote branch
+	brm      = branch -m
+	brr      = branch -r
+	brrs     = for-each-ref --sort=-committerdate refs/remotes/
+	brs      = for-each-ref --sort=-committerdate refs/heads/
+	brv      = branch -v
+	ca       = commit --amend
+	ci       = commit -v
+	cl       = config --list
+	cm       = commit -m
+	co       = checkout
+	cob      = checkout -b
+	coh      = checkout HEAD
+	coo      = checkout --orphan
+	cop      = checkout -                                                                                                                                                                    # checkout last branch
+	cp       = cherry-pick
+	da       = "!f() { git branch -D $2 && git push $1 --delete $2; }; f"                                                                                                                    # delete both local and remote branch, e.g. git da origin test
+	dd       = "!f() { git diff --name-only $1 | xargs -p git difftool -y $1 --; }; f"                                                                                                       # diff --name-only && difftool e.g. git dd abcdef
+	deploy   = "!f() { git subtree push --prefix $1 origin gh-pages; }; f" # deploy to GitHub Pages, e.g. git subtree push --prefix dist origin gh-pages                                                                                                        # diff --name-only && difftool e.g. git dd abcdef
+	dno      = diff --name-only
+	dt       = difftool
+	dth      = difftool --tool-help                                                                                                                                                          # list of valid <tool> settings
+	dtv      = difftool -t vimdiff                                                                                                                                                           # use vimdiff to compare, note: config .vimrc
+	dty      = difftool -y
+	fa       = fetch --all
+	exclude  = "!f() { vim .git/info/exclude; }; f"                                                                                                                                           # edit local ignore file(s)
+	fb       = "!f() { git fetch $1 $2:$2; }; f"                                                                                                                                             # e.g. git fetch origin branch1:branch1
+	fc       = "!f() { git branch -M && git add . && git commit -m 'First commit'; }; f" # switch to branch `main` and add all and commit                                                                                                                                        # e.g. git fetch origin branch1:branch1
+	goda     = log --graph --oneline --decorate --all
+	hide     = update-index --assume-unchanged
+	i        = init
+	ignore   = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
+	ignored  = !git ls-files -v | grep "^h"
+	l        = log --oneline
+	lc       = log ORIG_HEAD.. --stat --no-merges
+	lf       = log --name-only --oneline --pretty=\"format:\"                                                                                                                                # log file name only(without information
+	lg       = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lgcnt    = "!f() { git log --pretty=oneline --after=$1days | wc -l; }; f"                                                                                                                # e.g. git lgcnt 10, count the commits in 10 days
+	lgfrom   = "!f() { git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative $1..HEAD; }; f"       # get the log from a commit to HEAD, only available in current branch
+	lgg      = log -g                                                                                                                                                                        # show changing brances, e.g. git reset HEAD^
+	lggrep   = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --grep
+	lgh      = log -g HEAD@{1}                                                                                                                                                               # show last changing brances, e.g. git reset HEAD^
+	lglast   = "!f() { git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --after=$1days; }; f"
+	lgr      = "!f() { git log --pretty=oneline --reverse | head -$1; }; f"                                                                                                                  # git log reverse
+	lol      = log --oneline
+	initial  = "!f() { git init && git add -A && git commit -m 'Initial commit'; }; f"
+	lp1      = log -p -1 --
+	lr       = ls-remote
+	lsr      = ls-tree -r
+	mf       = merge --ff-only
+	mt       = mergetool
+	mt       = mergetool
+	pa       = push --all
+	pb       = push -u bitbucket HEAD
+	ph       = push -u heroku HEAD
+	po       = push -u origin HEAD
+	poa      = push origin --all
+	pr       = pull --rebase
+	pro      = pull --rebase origin
+	puo      = push -u origin
+	r        = reset
+	ra       = "!f() { git remote add $1 https://$2@bitbucket.org/$3/$4.git; }; f"
+	rb       = rebase
+	rename   = branch -m # git rename master main
+	rh       = reset --hard
+	ri       = "!f() { git rebase -i HEAD~$1; }; f"
+	rir      = "!f() { git rebase -i --root; }; f"
+	rs       = reset --soft
+	rv       = remote -v
+	sa       = stash apply
+	sh       = show
+	sl       = stash list
+	sn       = "!f() { git show HEAD~$1 --name-only; }; f"
+	sno      = show --name-only
+	sno0     = show HEAD --name-only
+	sp       = stash pop
+	ss       = stash save
+	ssa      = "!f() { git stash save && git stash apply; }; f"                                                                                                                              # e.g. stash without rever
+	ssn      = shortlog -s -n                                                                                                                                                                # get the number of commits per author
+	ssna     = shortlog -s -n --all                                                                                                                                                          # get the number of commits per author, with statisics for all branches
+	st       = status
+	t        = tag
+	td       = tag -d		# delete tag(s)
+	undeploy = "!f() { git branch -D deploy && git push --delete origin gh-pages; }; f" # for GitHub Pages, remove deployed local and remote branches
+	undo     = reset --soft HEAD~
+	unhide   = update-index --no-assume-unchanged
 
 [diff]
 	tool = diffmerge
