@@ -34,10 +34,10 @@
 	dth      = difftool --tool-help                                                                                                                                                          # list of valid <tool> settings
 	dtv      = difftool -t vimdiff                                                                                                                                                           # use vimdiff to compare, note: config .vimrc
 	dty      = difftool -y
-	fa       = fetch --all
 	exclude  = "!f() { vim .git/info/exclude; }; f"                                                                                                                                           # edit local ignore file(s)
+	fa       = fetch --all
 	fb       = "!f() { git fetch $1 $2:$2; }; f"                                                                                                                                             # e.g. git fetch origin branch1:branch1
-	fc       = "!f() { git branch -M && git add . && git commit -m 'First commit'; }; f" # switch to branch `main` and add all and commit                                                                                                                                        # e.g. git fetch origin branch1:branch1
+	fc       = "!f() { git branch -M main && git add . && git commit -m 'First commit'; }; f" # switch to branch `main` and add all and commit                                                                                                                                        # e.g. git fetch origin branch1:branch1
 	goda     = log --graph --oneline --decorate --all
 	hide     = update-index --assume-unchanged
 	i        = init
