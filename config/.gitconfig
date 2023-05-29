@@ -87,6 +87,7 @@
 	sno      = show --name-only
 	sno0     = show HEAD --name-only
 	sp       = stash pop
+	spp      = "!f() { git subtree push --prefix $1 $2 $3; }; f" # e.g. git pss dist origin gh-pages
 	ss       = stash save
 	ssa      = "!f() { git stash save && git stash apply; }; f"                                                                                                                              # e.g. stash without rever
 	ssn      = shortlog -s -n                                                                                                                                                                # get the number of commits per author
