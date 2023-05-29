@@ -64,6 +64,7 @@
 	mt       = mergetool
 	pa       = push --all
 	pb       = push -u bitbucket HEAD
+	pd  	 = "!f() { git push --delete $1 $2; }; f" # e.g. git pd origin gh-pages
 	ph       = push -u heroku HEAD
 	po       = push -u origin HEAD
 	poa      = push origin --all
