@@ -77,3 +77,6 @@ git branch -a
 git config --global alias.ignore \
 '!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi'
 ```
+
+## [Git Merge Squash](https://www.scaler.com/topics/git/git-merge-squash/)
+[git-merge-squash](https://github.com/ChrisWongAtCUHK/git-merge-squash)
