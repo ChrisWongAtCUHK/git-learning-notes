@@ -4,7 +4,7 @@
 	pager = # https://superuser.com/questions/820943/typing-git-log-oneline-in-oh-my-zsh-pipes-to-less
 [alias]
 	aa       = add --all
-	aac      = "!f() { git add --all && git commit -m $1; }; f"
+	aac      = "!f() { git add --all && git commit -m '$1'; }; f"
 	alias    = config --get-regexp alias
 	ap	     = add --patch                                                                                                                                                                  # https://dev.to/etcwilde/git-and-the-interactive-patch-add
 	b        = branch
